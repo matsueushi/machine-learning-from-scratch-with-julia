@@ -46,6 +46,5 @@ jobs:
       - name: Build notebooks
         run: |
           julia --project -e "using Pkg; Pkg.instantiate()"
-          pwd
-          ls
+          mkdir notebook
           julia --project src/build.jl
