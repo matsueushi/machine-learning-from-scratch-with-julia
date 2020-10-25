@@ -42,9 +42,12 @@ jobs:
         uses: julia-actions/setup-julia@v1.3.1
         with:
           version: 1.5
-
-      - name: Build notebooks
         run: |
           julia --project -e "using Pkg; Pkg.instantiate()"
           mkdir notebook
+
+      - name: Build notebooks
+        env:
+          GKSwstype: 100
+        run: |
           julia --project src/build.jl
