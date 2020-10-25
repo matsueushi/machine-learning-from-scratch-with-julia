@@ -36,7 +36,7 @@ jobs:
           mkdir data
           cd data
           kaggle competitions download -c house-prices-advanced-regression-techniques
-          unzip house-prices-advanced-regression-techniques house-prices-advanced-regression-techniques.zip
+          unzip -d house-prices-advanced-regression-techniques house-prices-advanced-regression-techniques.zip
 
       - name: Setup Julia environment
         uses: julia-actions/setup-julia@v1.3.1
