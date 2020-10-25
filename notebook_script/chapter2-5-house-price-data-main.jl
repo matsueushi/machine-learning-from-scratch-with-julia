@@ -4,7 +4,7 @@ include("../src/house_price_data.jl")
 
 ## #src
 #-
-my_data = HousePriceData("../data/train.csv")
+my_data = HousePriceData("../data/house-prices-advanced-regression-techniques/train.csv")
 
 levels = [20, 30, 60, 70]
 titles = [

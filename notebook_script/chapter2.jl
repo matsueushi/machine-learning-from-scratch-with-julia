@@ -470,7 +470,7 @@ using DataFrames
 
 
 #-
-data = CSV.read("../data/train.csv", DataFrame)
+data = CSV.read("../data/house-prices-advanced-regression-techniques/train.csv", DataFrame)
 
 
 ## #src
