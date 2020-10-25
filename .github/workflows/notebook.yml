@@ -30,6 +30,9 @@ jobs:
       - name: Download datasets
         run: |
           python -m pip install kaggle
+          mkdir data
+          cd data
+          kaggle competitions download -c house-prices-advanced-regression-techniques
 
       - name: Setup Julia environment
         uses: julia-actions/setup-julia@v1.3.1
