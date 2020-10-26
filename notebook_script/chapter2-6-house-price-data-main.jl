@@ -1,3 +1,5 @@
+# ## 2.6 関数とオブジェクト指向
+
 ## #src
 #-
 include("../src/house_price_data.jl")
