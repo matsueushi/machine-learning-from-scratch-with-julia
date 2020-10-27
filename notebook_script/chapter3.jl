@@ -62,6 +62,7 @@ w = [5.0, 3.0]
 x = [1.0 5.0]
 
 ## 内積の計算
+using LinearAlgebra
 xw = x ⋅ w
 
 
@@ -74,7 +75,6 @@ ww = transpose(w) ⋅ w
 ## #src
 #-
 ## ノルムを計算する関数が用意されている
-using LinearAlgebra
 norm(w)
 
 
