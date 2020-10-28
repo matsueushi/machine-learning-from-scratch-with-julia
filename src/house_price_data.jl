@@ -2,6 +2,7 @@
 using CSV
 using DataFrames
 using Plots
+using Measures
 
 
 struct HousePriceData
@@ -34,5 +35,5 @@ function plot_scatter(data::HousePriceData, titles, levels)
         ylabel!("SalePrice")
         push!(plts, fig)
     end
-    plot(plts..., layout = (:, 2), size = [600, 600])
+    plot(plts..., layout = (:, 2), size = [600, 600], margin = 3mm)
 end

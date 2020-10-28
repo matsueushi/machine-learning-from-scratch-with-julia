@@ -2,7 +2,7 @@
 
 
 ## #src
-# ## 3.1
+# ## 3.1 線形代数
 # ### 3.1.1 スカラーとベクトル
 ## 列ベクトル: 2行1列のArrayを定義
 ## Juliaはcolumn-major
@@ -62,6 +62,7 @@ w = [5.0, 3.0]
 x = [1.0 5.0]
 
 ## 内積の計算
+## \cdot
 using LinearAlgebra
 xw = x ⋅ w
 
@@ -161,3 +162,42 @@ end
 
 find_inv(A)
 find_inv(B)
+
+
+## #src
+# ### 3.1.10 行列と行列式の関係
+## 行列: 2行2列のArrayを定義
+A = [6.0 2.0; 2.0 5.0]
+B = [6.0 3.0; 2.0 1.0]
+
+## 行列式の計算
+println("行列Aの行列式: $(det(A))")
+println("行列Bの行列式: $(det(B))")
+
+
+## #src
+# ### 3.1.12 固有値問題の解法
+## 行列Aの定義
+A = [3 2; 4 1]
+
+## 固有値問題の解
+eig_A = eigen(A)
+
+
+## #src
+# ### 3.1.13 固有値と固有ベクトルの性質
+## 行列Aの定義
+A = [3 1; 1 3]
+
+## 固有値・固有ベクトル
+eig_A = eigen(A)
+
+println("行列Aの固有値:\n$(eig_A.values)")
+println("行列Aの固有ベクトル:\n$(eig_A.vectors)")
+println("固有ベクトルの内積:$(eig_A.vectors[:, 1] ⋅ eig_A.vectors[:, 2])")
+println("固有値の和:$(sum(eig_A.values))")
+println("行列Aのトレース(対角成分の和):$(tr(A))")
+println("固有値の積:$(prod(eig_A.values))")
+println("行列Aの行列式:$(det(A))")
+println("固有ベクトルがなす行列の逆行列:\n$(eig_A.vectors)")
+println("固有ベクトルがなす行列の転置行列:\n$(eig_A.vectors')")

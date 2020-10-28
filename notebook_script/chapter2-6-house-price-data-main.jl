@@ -23,8 +23,3 @@ fig = plot_scatter(my_data, titles, levels)
 
 ## jupyter notebook
 fig
-
-## #src
-#-
-print("hello")
-
