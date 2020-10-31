@@ -300,3 +300,45 @@ medians = median(X; dims=1)
 println("データ X:\n$X")
 println("身長の平均値: $(means[1]), 体重の平均値:$(means[2]), 胸囲の平均値$(means[3])")
 println("身長の中央値: $(medians[1]), 体重の中央値:$(medians[2]), 胸囲の中央値$(medians[3])")
+
+
+## src
+#-
+## 分散共分散行列の計算
+## 3種類(身長、体重、胸囲)のデータを格納する8行3列の行列
+X = [
+    170 60 80;
+    167 52 93;
+    174 57 85;
+    181 70 80;
+    171 62 70;
+    171 66 95;
+    171 66 95;
+    168 54 85;
+]
+vars = var(X; corrected=false, dims=1)
+stds = std(X; corrected=false, dims=1)
+cov_bias = cov(X)
+cov_nobias = cov(X; corrected=false)
+println("データ X:\n$X")
+println("分散) 身長:$(vars[1]), 体重:$(vars[2]), 胸囲:$(vars[3])")
+println("標準偏差) 身長:$(stds[1]), 体重:$(stds[2]), 胸囲:$(stds[3])")
+println("分散共分散行列 バイアスあり:\n$(cov_bias)")
+println("分散共分散行列 バイアスなし:\n$(cov_nobias)")
+
+
+## #src
+# ### 3.4.7 相関係数と相関行列
+## 3種類(身長、体重、胸囲)のデータを格納する8行3列の行列
+X = [
+    170 60 80;
+    167 52 93;
+    174 57 85;
+    181 70 80;
+    171 62 70;
+    171 66 95;
+    171 66 95;
+    168 54 85;
+]
+println("データ X:\n$X")
+println("相関行列:\n$(cor(X))")
