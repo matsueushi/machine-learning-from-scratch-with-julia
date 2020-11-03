@@ -4,6 +4,7 @@
 include("../src/data.jl")
 include("../src/linear_regression.jl")
 
+using Measures
 using Plots
 
 
@@ -42,10 +43,11 @@ println("決定係数=$(r2(model, x_test, y_test))")
 
 ## #src
 #-
-scatter(model.X, model.Y, label = "Data", 
+scatter(model.X, model.Y, label = "Data",
         xlabel = "Garage Area x (square feet)",
-        ylabel = "Sale Price y (USD)")
+        ylabel = "Sale Price y (USD)",
+        margin = 12mm)
 xs = 0:100:6000
-# 予測を計算する。xs は reshapeする必要あり
+## 予測を計算する。xs は reshapeする必要あり
 ys = predict(model, reshape(xs, :, 1))
 plot!(xs, ys, linewidth = 2, label = "Linear Regression Model")

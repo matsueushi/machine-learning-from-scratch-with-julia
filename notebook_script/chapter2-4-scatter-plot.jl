@@ -4,6 +4,7 @@
 #-
 using CSV
 using DataFrames
+using Measures
 using Plots
 
 
@@ -14,13 +15,13 @@ data = CSV.read("../data/house-prices-advanced-regression-techniques/train.csv",
 
 ## #src
 #-
-scatter(data[!, :GrLivArea], data[!, :SalePrice], label="")
+scatter(data[!, :GrLivArea], data[!, :SalePrice], label="", margin = 12mm)
 xlabel!("GrLivArea")
 ylabel!("SalePrice")
 
 
 ## #src
 #-
-scatter(data[!, :MSSubClass], data[!, :SalePrice], label="")
+scatter(data[!, :MSSubClass], data[!, :SalePrice], label="", margin = 12mm)
 xlabel!("MSSubClass")
 ylabel!("SalePrice")
