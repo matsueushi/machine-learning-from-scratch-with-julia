@@ -5,6 +5,7 @@
 - [2.4 グラフのプロット](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter2-4-scatter-plot.ipynb)
 - [2.6 関数とオブジェクト指向](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter2-6-house-price-data-main.ipynb)
 - [Chapter 3 - 数学のおさらい](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter3.ipynb)
+- [Chapter 4 - 回帰分析](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter4.ipynb)
 
 ---
 
