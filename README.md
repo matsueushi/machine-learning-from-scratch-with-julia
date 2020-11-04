@@ -1,6 +1,8 @@
 # Machine-Learning-From-Scratch-With-Julia
 「ゼロからつくるPython機械学習プログラミング入門」をJuliaでやってみる
 
+Jupyter Notebookは"notebook"ブランチにおいてあります。
+
 - [Chapter 2 - Python..ではなくJulia入門](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter2.ipynb)
 - [2.4 グラフのプロット](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter2-4-scatter-plot.ipynb)
 - [2.6 関数とオブジェクト指向](https://nbviewer.jupyter.org/github/matsueushi/machine-learning-from-scratch-with-julia/blob/notebooks/notebook/chapter2-6-house-price-data-main.ipynb)

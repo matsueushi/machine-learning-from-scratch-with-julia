@@ -217,6 +217,12 @@ var(price)
 
 ## #src
 #-
+## 標準偏差
+std(price, corrected=false)
+
+
+## #src
+#-
 ## 最小値: 120
 minimum(price)
 
