@@ -39,7 +39,7 @@ function regression_data3()
     data = CSV.read(path, DataFrame)
     X = Array(data[data.MSSubClass .== 60, [:GrLivArea]])
     Y = data[data.MSSubClass .== 60, :SalePrice]
-    Y[Y .> 700000] -= 700000  # 外れ値
+    Y[Y .> 700000] .-= 700000  # 外れ値
     x_label = "居住面積x[平方フィート]"
     y_label = "物件価格y[ドル]"
     return RegressionData(X, Y, x_label, y_label)
