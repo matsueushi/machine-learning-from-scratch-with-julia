@@ -81,14 +81,14 @@ scatter(data.X, data.Y,
         ylabel = "Sale Price y (USD)",
         margin = 12mm)
 data_outlier = regression_data3()
-scatter!(data_outlier.X, data_ourlier.Y,
+scatter!(data_outlier.X, data_outlier.Y,
         label = "Trains data with outlier")
 scatter!(data.X[data.Y .< 700000, :], data.Y[data.Y .< 700000],
         label = "Train data")
 plot!(xs, ys, linewidth = 2, label = "Linear Regression Model (No outlier)")
-model4 = linear_regression(data3)
-ys_model4 = predict(model4, reshape(xs, :, 1))
-plot!(xs, ys_model4, linewidth = 2, label = "Linear Regression Model (With outlier)")
+model_outlier = linear_regression(data_outlier)
+ys_outlier = predict(model_outlier, reshape(xs, :, 1))
+plot!(xs, ys_outlier, linewidth = 2, label = "Linear Regression Model (With outlier)")
 
 
 ## #src
@@ -101,15 +101,13 @@ scatter(data.X, data.Y,
         xlabel = "Garage Area x (square feet)",
         ylabel = "Sale Price y (USD)",
         margin = 12mm)
-xs = 0:100:6000
-ys = predict(model, reshape(xs, :, 1))
-plot!(xs, ys, linewidth = 2, label = "Linear Regression Model")
+plot!(xs, ys_outlier, linewidth = 2, label = "Linear Regression Model")
 
 
 ## #src
 #-
 ## 正則化項あり(lamb=1)
-model_reg = linear_regression(data)
+model_reg = linear_regression(data_outlier)
 train_regularized!(model_reg, 1.0)
 scatter(data.X, data.Y,
         label = "Data",
