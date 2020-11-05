@@ -49,7 +49,9 @@ model = linear_regression(data)
 ## #src
 #-
 ## 5. 線形モデルのプロット
-scatter(model.X, model.Y, label = "Data",
+scatter(data.X, data.Y,
+        label = "Data",
+        legend = :topleft,
         xlabel = "Garage Area x (square feet)",
         ylabel = "Sale Price y (USD)",
         margin = 12mm)
@@ -68,3 +70,51 @@ model2 = linear_regression(data2)
 ## #src
 # ### 4.1.11 標準化による説明変数の重要度分析
 model3 = linear_regression(data2, normalize = true)
+
+
+## #src
+# ### 4.1.12 外れ値と正則化
+scatter(data.X, data.Y,
+        label = "Train data without outlier",
+        legend = :topleft,
+        xlabel = "Garage Area x (square feet)",
+        ylabel = "Sale Price y (USD)",
+        margin = 12mm)
+data_outlier = regression_data3()
+scatter!(data_outlier.X, data_outlier.Y,
+        label = "Trains data with outlier")
+scatter!(data.X[data.Y .< 700000, :], data.Y[data.Y .< 700000],
+        label = "Train data")
+plot!(xs, ys, linewidth = 2, label = "Linear Regression Model (No outlier)")
+model_outlier = linear_regression(data_outlier)
+ys_outlier = predict(model_outlier, reshape(xs, :, 1))
+plot!(xs, ys_outlier, linewidth = 2, label = "Linear Regression Model (With outlier)")
+
+
+## #src
+#-
+## L2正則平均二乗誤差の正則化
+## 正則化項なしの場合
+scatter(data.X, data.Y,
+        label = "Data",
+        legend = :topleft,
+        xlabel = "Garage Area x (square feet)",
+        ylabel = "Sale Price y (USD)",
+        margin = 12mm)
+plot!(xs, ys_outlier, linewidth = 2, label = "Linear Regression Model")
+
+
+## #src
+#-
+## 正則化項あり(lamb=1)
+model_reg = linear_regression(data_outlier)
+train_regularized!(model_reg, 1.0)
+scatter(data.X, data.Y,
+        label = "Data",
+        legend = :topleft,
+        xlabel = "Garage Area x (square feet)",
+        ylabel = "Sale Price y (USD)",
+        margin = 12mm)
+xs = 0:100:6000
+ys_reg = predict(model_reg, reshape(xs, :, 1))
+plot!(xs, ys_reg, linewidth = 2, label = "Linear Regression Model")

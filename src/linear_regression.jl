@@ -1,3 +1,4 @@
+using LinearAlgebra
 using Statistics
 
 
@@ -53,4 +54,25 @@ function r2(model::LinearRegression, x, y)
     sq = sum((predict(model, x) - y).^2)
     vr = sum((y .- mean(y; dims=1)).^2)
     return 1 - sq / vr
+end
+
+# L2ノルム正則化最小二乗法を用いてモデルパラメーターを最適化
+# lamb: 正則化の重み係数(実数スカラー)
+function train_regularized!(model::LinearRegression, lamb=0.1)
+    # 行列Xに「1」の要素を追加
+    ndim = model.n_data
+    Z = hcat(model.X, ones(ndim))
+
+    # 分母の計算
+    ZZ = 1 / ndim * Z' * Z + lamb * I
+
+    # 分子の計算
+    ZY = 1 / ndim * Z' * model.Y
+
+    # パラメーターvの最適化
+    # ZZ * v = ZY を解く
+    v = ZZ \ ZY
+    model.w = v[1:end-1]
+    model.b = last(v)
+    model
 end
